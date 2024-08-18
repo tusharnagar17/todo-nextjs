@@ -1,15 +1,15 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
-import client from "./../lib/mongodb"
+import isConnectedMongoose from "./../lib/mongodb"
 
 const inter = Inter({ subsets: ["latin"] })
 
 const getConnectionStatus = async () => {
     try {
-        await client.connect()
-
+        // await client.connect()
+        await isConnectedMongoose
         return true
-    } catch (error) {
+    } catch (e) {
         console.error(e)
         return false
     }
