@@ -32,6 +32,22 @@ export const todoSlice = createSlice({
                 state[destinationStatus].push(taskToMove)
             }
         },
+        tempChangeTodo: (state, action) => {
+            const updatedTodo = action.payload
+
+            const newTodo = state[updatedTodo.updates.status].find((t) => t._id === updatedTodo.id)
+
+            if (newTodo) {
+                newTodo.status = updatedTodo.updates.status
+                newTodo.description = updatedTodo.updates.description
+                newTodo.name = updatedTodo.updates.name
+            }
+        },
+        tempDeleteTodo: (state, action) => {
+            const { id, status } = action.payload
+
+            state[status] = state[status].filter((t) => t._id !== id)
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -39,7 +55,6 @@ export const todoSlice = createSlice({
                 state.loading = true
             })
             .addCase(fetchTodo.fulfilled, (state, action) => {
-                console.log("data in todoSlice", action.payload)
                 state.loading = false
 
                 state.todo = action.payload.filter((item) => item.status === "todo")
@@ -51,12 +66,9 @@ export const todoSlice = createSlice({
                 state.error = action.error.message
             })
             .addCase(addTodo.fulfilled, (state, action) => {
-                console.log("saved Data", action.payload)
                 state[action.payload.status].push(action.payload)
             })
             .addCase(editTodo.fulfilled, (state, action) => {
-                console.log("action.payload", action.payload)
-
                 // const taskIndex = state[action.payload.status].findIndex(item => item.id ===action.pay)
             })
             .addCase(deleteTodo.fulfilled, (state, action) => {
@@ -70,5 +82,5 @@ export const todoSlice = createSlice({
     },
 })
 
-export const { moveTodo } = todoSlice.actions
+export const { moveTodo, tempChangeTodo, tempDeleteTodo } = todoSlice.actions
 export default todoSlice.reducer

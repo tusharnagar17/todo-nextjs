@@ -6,6 +6,7 @@ import { CiClock1 } from "react-icons/ci"
 import { MdDelete } from "react-icons/md"
 import { FaEdit } from "react-icons/fa"
 import { Draggable } from "@hello-pangea/dnd"
+import { tempDeleteTodo } from "@/store/slices/todoSlice"
 
 const Task = ({ index, item, setTempData, changeUpdateModal }) => {
     const dispatch = useDispatch()
@@ -29,6 +30,13 @@ const Task = ({ index, item, setTempData, changeUpdateModal }) => {
                 >
                     <div className="text-base font-semibold my-2">{item.name}</div>
                     <div className="text-sm my-2">{item.description}</div>
+                    <div
+                        className={`border-2 h-2 py-1 rounded-full w-1/4 ${
+                            item.status === "done" && "bg-green-500"
+                        } ${item.status === "doing" && "bg-yellow-500"} ${
+                            item.status === "todo" && "bg-orange-500"
+                        }`}
+                    ></div>
                     <div className="flex my-1 text-sm justify-between items-center">
                         <div className="flex text-gray-500 font-semibold items-center gap-1">
                             {" "}
@@ -50,13 +58,13 @@ const Task = ({ index, item, setTempData, changeUpdateModal }) => {
                             {/* Delete Button */}
                             <div
                                 onClick={() => {
+                                    dispatch(tempDeleteTodo({ id: item._id, status: item.status }))
                                     dispatch(
                                         deleteTodo({
                                             id: item._id,
                                             status: item.status,
                                         })
                                     )
-                                    dispatch(fetchTodo())
                                 }}
                                 className="border-2 flex items-center justify-center px-2 py-1 rounded-full bg-red-300 hover:bg-red-400"
                             >

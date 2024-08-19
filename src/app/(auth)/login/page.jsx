@@ -20,8 +20,16 @@ const LoginPage = () => {
         setData((prevData) => ({ ...prevData, [name]: value }))
     }
 
+    const testCredentials = () => {
+        setData({ email: "test@gmail.com", password: "test" })
+
+        handleFormSubmit()
+    }
+
     const handleFormSubmit = async (ev) => {
-        ev.preventDefault()
+        if (ev) {
+            ev.preventDefault()
+        }
 
         // Login Logic
         try {
@@ -55,7 +63,7 @@ const LoginPage = () => {
         <div className="flex min-h-screen items-center justify-center">
             <form
                 onSubmit={handleFormSubmit}
-                className="border lg:w-2/6 md:w-1/2 w-full m-2 shadow-2xl md:px-16 p-10 rounded-xl"
+                className="border bg-white lg:w-2/6 md:w-1/2 w-full m-2 shadow-2xl md:px-16 p-10 rounded-xl"
             >
                 <h1 className="text-center text-3xl">Login</h1>
                 {/* Custom Error */}
@@ -91,6 +99,10 @@ const LoginPage = () => {
 
                 <button type="submit" className="form-button">
                     Submit
+                </button>
+                {/* test credentials button */}
+                <button className="form-button bg-violet-400 my-2" onClick={testCredentials}>
+                    Test Credentials
                 </button>
                 <div className="mt-4 text-sm text-center">
                     New here! {"  "}

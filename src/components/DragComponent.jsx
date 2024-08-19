@@ -55,7 +55,7 @@ const DragComponent = () => {
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            <div className="flex items-start max-w-7xl mx-auto gap-4">
+            <div className="flex items-start max-w-7xl overflow-x-auto mx-auto gap-4">
                 <Column index={111} title="todo" tasks={todo} />
                 <Column index={222} title="doing" tasks={doing} />
                 <Column index={333} title="done" tasks={done} />

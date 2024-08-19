@@ -55,7 +55,7 @@ const RegisterPage = () => {
         <div className="flex min-h-screen items-center justify-center">
             <form
                 onSubmit={handleFormSubmit}
-                className="border lg:w-2/6 md:w-1/2 w-full m-2 shadow-2xl md:px-16 p-10 rounded-xl"
+                className="border bg-white lg:w-2/6 md:w-1/2 w-full m-2 shadow-2xl md:px-16 p-10 rounded-xl"
             >
                 <h1 className="text-center text-3xl">Register </h1>
                 {/* Custom Error */}

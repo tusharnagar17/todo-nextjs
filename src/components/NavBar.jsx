@@ -19,9 +19,9 @@ const NavBar = () => {
         }
     }
     return (
-        <div className="border-2 flex items-center justify-center relative">
-            <div className="text-4xl font-semibold font-mono my-4">ToDo-App</div>
-            <div className="absolute items-end right-10">
+        <div className="flex items-center justify-center relative">
+            <div className="text-2xl md:text-4xl font-semibold font-mono my-4">ToDo-App</div>
+            <div className="absolute items-end right-2 md:right-10">
                 <button
                     className="flex gap-2 items-center justify-center text-sm  rounded-xl"
                     onClick={handleLogout}

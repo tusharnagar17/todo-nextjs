@@ -1,4 +1,5 @@
 "use client"
+import { tempChangeTodo } from "@/store/slices/todoSlice"
 import { addTodo, editTodo, fetchTodo } from "@/store/thunk"
 import React, { useState } from "react"
 import { useDispatch } from "react-redux"
@@ -16,6 +17,7 @@ const UpdateTodoModal = ({ item, changeModal, isOpen, onClose }) => {
         ev.preventDefault()
 
         const updates = { name, description, status: selectedOption }
+        dispatch(tempChangeTodo({ id: item._id, updates }))
         dispatch(editTodo({ id: item._id, updates }))
         // dispatch(fetchTodo())
         setName("")

@@ -30,7 +30,7 @@ const Column = ({ index, title, tasks }) => {
                 <div
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    className="md:w-1/3 w-1/2 border-2 px-2 rounded-xl my-4 bg-gray-100"
+                    className="md:w-1/3 w-2/3 border-2 px-2 rounded-xl my-4 bg-gray-100"
                 >
                     <div className="text-center font-bold text-xl py-4">{title}</div>
                     <div>

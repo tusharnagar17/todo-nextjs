@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
     return (
         <ReduxProvider>
             <html lang="en">
-                <body className={inter.className}>
+                <body
+                    className={`${inter.className} bg-gradient-to-br from-blue-300 via-violet-300 to-green-300 min-h-screen`}
+                >
                     {isConnected ? (
                         children
                     ) : (
