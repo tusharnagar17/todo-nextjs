@@ -51,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://todo-nextjs-5s4h.onrender.com/)
 
 Todo-Nextjs is a task management app designed to help users keep track of their tasks efficiently. It features a clean and intuitive user interface, allowing users to easily add, edit, and manage their tasks. With drag-and-drop functionality, users can effortlessly organize their tasks into different categories. Additionally, the app includes user authentication and data storage with MongoDB, enabling secure access to personalized task lists.
 
@@ -59,7 +59,7 @@ Todo-Nextjs is a task management app designed to help users keep track of their 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
+### [Live Project Link](https://todo-nextjs-5s4h.onrender.com/) 
 ### Built With
 
 
@@ -164,7 +164,7 @@ Don't forget to give the project a star! Thanks again!
 
 Tushar Nagar - [@tusharnagar_17](https://twitter.com/tusharnagar_17) - nagartushar771@gmail.com
 
-Project Link: []()
+Project Link: [https://todo-nextjs-5s4h.onrender.com/](https://todo-nextjs-5s4h.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -202,7 +202,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: public/todo-nextjs.png
+[product-screenshot]: public/sample-video.gif
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
