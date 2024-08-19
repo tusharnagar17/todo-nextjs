@@ -1,9 +1,14 @@
+import DragComponent from "@/components/DragComponent"
+import NavBar from "@/components/NavBar"
 import Image from "next/image"
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen items-center justify-center bg-white text-black">
-            Main App
-        </main>
+        <>
+            <NavBar />
+            <main className="">
+                <DragComponent />
+            </main>
+        </>
     )
 }

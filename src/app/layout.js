@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
 import isConnectedMongoose from "./../lib/mongodb"
+import { ReduxProvider } from "./_app"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,17 +24,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
     const isConnected = getConnectionStatus()
     return (
-        <html lang="en">
-            <body className={inter.className}>
-                {isConnected ? (
-                    children
-                ) : (
-                    <div className="flex min-h-screen items-center justify-center">
-                        {" "}
-                        You are NOT connected to MongoDB. Check the README.md for instructions.
-                    </div>
-                )}
-            </body>
-        </html>
+        <ReduxProvider>
+            <html lang="en">
+                <body className={inter.className}>
+                    {isConnected ? (
+                        children
+                    ) : (
+                        <div className="flex min-h-screen items-center justify-center">
+                            {" "}
+                            You are NOT connected to MongoDB. Check the README.md for instructions.
+                        </div>
+                    )}
+                </body>
+            </html>
+        </ReduxProvider>
     )
 }

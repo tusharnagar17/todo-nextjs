@@ -33,6 +33,7 @@ const TodoSchema = new Schema({
     },
 })
 
-const Todo = mongoose.model("Todo", TodoSchema)
+// Model overwrite bug fixed
+const Todo = mongoose.models.Todo || mongoose.model("Todo", TodoSchema)
 
 export default Todo

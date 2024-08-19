@@ -32,10 +32,12 @@ const LoginPage = () => {
                 },
                 body: JSON.stringify(data),
             })
+
             const result = await res.json()
 
             if (res.ok) {
                 console.log("Login Successfully:", result)
+
                 router.push("/")
             } else {
                 console.log("Custom Error:", result.error)

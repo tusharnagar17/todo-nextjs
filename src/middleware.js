@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server"
-import jwt from "jsonwebtoken"
 import { jwtVerify } from "jose"
 
 export async function middleware(request) {
     const token = request.cookies.get("token")
-    console.log("token", token)
 
     if (!token) {
         return NextResponse.redirect(new URL("/login", request.url))
@@ -16,9 +14,9 @@ export async function middleware(request) {
             new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET)
         )
 
-        console.log("Token is valid. Decoded data:", payload)
-
-        return NextResponse.next()
+        const response = NextResponse.next()
+        response.headers.set("x-user", JSON.stringify(payload))
+        return response
     } catch (error) {
         console.error("Invalid or expired token:", error)
 
@@ -27,5 +25,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ["/", "/login"],
+    matcher: ["/", "/api/todo/:path*"],
 }
